@@ -42,8 +42,8 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/contacts">Contacts</a></li>
                 </ul>
                 <ul class="nav navbar-nav d-xl-flex ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="basket.html"><i class="fa fa-shopping-cart"></i>&nbsp;Basket</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="../registration.blade.php"><i class="fa fa-user"></i>&nbsp;Registration</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/user_orders"><i class="fa fa-shopping-cart"></i>&nbsp;User orders</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/registration"><i class="fa fa-user"></i>&nbsp;Registration</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Currency</a>
                         <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">RUB</a><a class="dropdown-item" role="presentation" href="#">EUR</a><a class="dropdown-item" role="presentation" href="#">USD</a></div>
                     </li>
@@ -59,10 +59,10 @@
     </form>
 </div>
 <ul class="nav nav-pills nav-fill text-primary border rounded-0 shadow-sm sticky-top" style="background-size: 0;">
-    <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="../catalog.blade.php">Games catalog</a></li>
-    <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="new.html">New</a></li>
-    <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="../bestsellers.blade.php">Best-sellers</a></li>
-    <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="../preorders.blade.php">Pre-orders</a></li>
+    <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="/catalog">Games catalog</a></li>
+    <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="/new_games">New</a></li>
+    <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="/bestsellers">Best-sellers</a></li>
+    <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="/preorders">Pre-orders</a></li>
 </ul>
 @show
 
@@ -93,7 +93,7 @@
                         <h3>PC Master Race Shop</h3>
                         <p>We are here to give all our customers best buying expirience.<br>Our shop - right choice if you want to buy games without headache.<br>We hope you will enjoy our services and come again!</p>
                     </div>
-                    <div class="col item social"><a href="#">vk</a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+                    <div class="col item social"><a href="https://vk.com/id157824880">vk</a><a href="https://www.youtube.com/watch?v=Rj4pT-6RPIs"><i class="icon ion-social-facebook"></i></a></div>
                 </div>
                 <p class="copyright">PC Master Race Shop © 2019</p>
             </div>

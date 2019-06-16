@@ -1,5 +1,5 @@
 
-    @extends('layouts.layout)
+    @extends('layouts.layout')
 
     @section('main_section')
     <section>
@@ -18,3 +18,4 @@
 
     <?php
     // TODO: нужно бахнуть роут для отбора по бестселлерам
+    ?>

@@ -44,22 +44,22 @@ Route::get('/catalog', function() {
     return view('catalog');
 });
 
-Route::get('/new_games', function() {
-    //TODO:Времнная заглушка для страницы со свежим мясом
-    return view('new_games');
-});
+Route::get('/new_games', 'NewGamesController@showNewGames');
 
-Route::get('/preorders', function() {
-    //TODO:Времнная заглушка для предзаказов
-    return view('preorders');
-});
+Route::get('/preorders', 'PreordersController@showPreorders');
 
 Route::get('/registration', function() {
     //TODO:Времнная заглушка для формы регистрации
     return view('registration');
 });
 
-Route::get('/user', function() {
+Route::get('/user_orders', function() {
     //TODO:Времнная заглушка для каталога
-    return view('catalog');
+    return view('user_orders');
 });
+
+Route::get('/authorization', function() {
+    return view('authorization');
+});
+
+Route::get('/test', 'NewGamesController@showNewGames');
