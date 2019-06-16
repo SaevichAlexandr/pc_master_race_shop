@@ -1,0 +1,14 @@
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+  color: rgb(10,10,11);
+}
+
+.nav-item {
+  padding-right: 10px;
+}
+
+.navbar.navbar-light.navbar-expand-md.d-inline-flex.d-xl-flex {
+}
+
+.col-xl-9.offset-xl-0 {
+}
+
