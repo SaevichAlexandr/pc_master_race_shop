@@ -44,9 +44,13 @@ Route::get('/catalog', function() {
     return view('catalog');
 });
 
+Route::get('/bestsellers', 'BestsellersController@showBestsellers');
+
 Route::get('/new_games', 'NewGamesController@showNewGames');
 
 Route::get('/preorders', 'PreordersController@showPreorders');
+
+Route::get('/test', 'CatalogController@showCatalog');
 
 Route::get('/registration', function() {
     //TODO:Времнная заглушка для формы регистрации
@@ -62,4 +66,4 @@ Route::get('/authorization', function() {
     return view('authorization');
 });
 
-Route::get('/test', 'NewGamesController@showNewGames');
+

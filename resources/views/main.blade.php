@@ -7,7 +7,7 @@
                 <div class="jumbotron hero-nature carousel-hero" style="background-image: url(&quot;../resources/../resources/assets/img/master_race_2.jpg&quot;);">
                     <h1 class="hero-title">What gaming platform is best?</h1>
                     <p class="hero-subtitle">It`s pretty easy to learn<br>Of course it is PC</p>
-                    <p><a class="btn btn-primary btn-lg border rounded border-dark hero-button" role="button" href="#" style="filter: invert(0%);background-color: rgb(255,138,0);">Learn more</a></p>
+                    <p><a class="btn btn-primary btn-lg border rounded border-dark hero-button" role="button" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" style="filter: invert(0%);background-color: rgb(255,138,0);">Learn more</a></p>
                 </div>
             </div>
             <div class="carousel-item">
