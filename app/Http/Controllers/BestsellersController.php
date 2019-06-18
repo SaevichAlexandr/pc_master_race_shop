@@ -9,7 +9,7 @@ class BestsellersController extends Controller
 {
     public function showBestsellers()
     {
-        $bestsellers = Game::orderBy('sold_keys', 'desc')->skip(0)->limit(15)->get();
+        $bestsellers = Game::orderBy('sold_keys', 'desc')->limit(9)->get();
 
         return view('bestsellers')->with('bestsellers', $bestsellers);
     }

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/add_game', 'MainPageController@addGame');
+//Route::get('/add_game', 'MainPageController@addGame');
 
 Route::get('/', 'MainPageController@takeGames');
 
@@ -50,20 +50,19 @@ Route::get('/new_games', 'NewGamesController@showNewGames');
 
 Route::get('/preorders', 'PreordersController@showPreorders');
 
-Route::get('/test', 'CatalogController@showCatalog');
+Route::get('/show_catalog', 'CatalogController@showCatalog');
 
-Route::get('/registration', function() {
-    //TODO:Времнная заглушка для формы регистрации
-    return view('registration');
-});
+Route::get('/registration-custom', 'AuthController@showRegisterForm')->name('custom.register');
+Route::post('/registration-custom', 'AuthController@register');
+
+Route::get('/login-custom', 'AuthController@showLoginForm')->name('custom.login');
+Route::post('/login-custom', 'AuthController@login');
 
 Route::get('/user_orders', function() {
-    //TODO:Времнная заглушка для каталога
+    //TODO:Времнная заглушка для заказов пользователя
     return view('user_orders');
 });
 
-Route::get('/authorization', function() {
-    return view('authorization');
-});
+Auth::routes();
 
-
+Route::get('/home', 'HomeController@index')->name('home');

@@ -14,7 +14,7 @@ class NewGamesController extends Controller
      */
     public function showNewGames()
     {
-        // новыми будем считать игры добавленные в не ранее месяца назад от текущего дня
+        // новыми будем считать игры добавленные не ранее месяца назад от текущего дня
         $date = date('Y-m-d');
 
         $explodeDate = explode('-', $date);
