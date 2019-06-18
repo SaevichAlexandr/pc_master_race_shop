@@ -19,27 +19,63 @@
     </div>
     <section>
         <div class="container" style="margin-top: 20px;margin-bottom: 20px;">
-            <div class="row justify-content-around">
-                <script type="javascript">
-                    $.ajax({
-                        url: '/',
-                        success: function(data) {
-                        $('.results').html(data);
-                    }
-                    });
-                </script>
-                {{--@foreach($bestsellers as $game)--}}
-                    {{--<div class="col-auto col-sm-6 col-md-auto col-lg-auto col-xs-5" style="background-size: cover;background-position: top;height: 362px;">--}}
-                        {{--<div class="card d-inline-block mb-4 box-shadow rounded-0" style="height: 350px;width: 264px;">--}}
-                            {{--<div class="card-body" data-bs-hover-animate="pulse" style="background-size: cover;background-position: top;height: 350px;background-image: url(&quot;../resources/assets/img/{{$game->image_name}}&quot;);"><a class="btn btn-primary border rounded border-dark" role="button" href="{{ 'http://pc.master.race.shop/gameinfo/'.$game->id }}" data-bs-hover-animate="pulse" style="width: 224px;margin-top: 273px;background-color: rgb(255,153,0);">{{ $game->price }}</a></div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--@endforeach--}}
+            <div id="row" class="row justify-content-around">
+
+
+                <script type="text/javascript" src="../resources/assets/js/jquery.min.js"></script>
+                <script type="text/javascript" src="../resources/assets/js/bs-animation.js"></script>
+                <script type="text/javascript" src="../resources/assets/js/catalog_show.js"></script>
+                {{--<script type="text/javascript">--}}
+
+                    {{--$(document).ready(function () {--}}
+                        {{--var number = 6;--}}
+
+                        {{--$.ajax({--}}
+                            {{--type: 'GET',--}}
+                            {{--url: '/test',--}}
+                            {{--data: 'number=' + number,--}}
+                            {{--success: function(response) {--}}
+                                {{--var html = "";--}}
+                                {{--for (var i = 0; i < response.length; i++) {--}}
+                                {{--html += '<div class="col-auto col-sm-6 col-md-auto col-lg-auto col-xs-5" style="background-size: cover;background-position: top;height: 362px;">\n' +--}}
+                                {{--'                                        <div class="card d-inline-block mb-4 box-shadow rounded-0" style="height: 350px;width: 264px;">\n' +--}}
+                                {{--'                                        <div class="card-body" data-bs-hover-animate="pulse" style="background-size: cover;background-position: top;height: 350px;background-image: url(&quot;../resources/assets/img/' +--}}
+                                {{--response[i].image_name + '&quot;);"><a class="btn btn-primary border rounded border-dark" role="button" href="http://pc.master.race.shop/gameinfo/' + response[i].id + '" data-bs-hover-animate="pulse" style="width: 224px;margin-top: 273px;background-color: rgb(255,153,0);">' + response[i].price + '</a></div>\n' +--}}
+                                {{--'                                    </div>\n' +--}}
+                                {{--'                                    </div>'--}}
+                                {{--}--}}
+                                {{--$('#row').html(html);--}}
+                            {{--}--}}
+                        {{--});--}}
+                        {{--number += 6;--}}
+
+                        {{--$('#showMore').on('click', function () {--}}
+                            {{--$.ajax({--}}
+                                {{--type: 'GET',--}}
+                                {{--url: '/test',--}}
+                                {{--data: 'number=' + number,--}}
+                                {{--success: function(response) {--}}
+                                    {{--var html = "";--}}
+                                    {{--for (var i = 0; i < response.length; i++) {--}}
+                                        {{--html += '<div class="col-auto col-sm-6 col-md-auto col-lg-auto col-xs-5" style="background-size: cover;background-position: top;height: 362px;">\n' +--}}
+                                            {{--'                                        <div class="card d-inline-block mb-4 box-shadow rounded-0" style="height: 350px;width: 264px;">\n' +--}}
+                                            {{--'                                        <div class="card-body" data-bs-hover-animate="pulse" style="background-size: cover;background-position: top;height: 350px;background-image: url(&quot;../resources/assets/img/' +--}}
+                                            {{--response[i].image_name + '&quot;);"><a class="btn btn-primary border rounded border-dark" role="button" href="http://pc.master.race.shop/gameinfo/' + response[i].id + '" data-bs-hover-animate="pulse" style="width: 224px;margin-top: 273px;background-color: rgb(255,153,0);">' + response[i].price + '</a></div>\n' +--}}
+                                            {{--'                                    </div>\n' +--}}
+                                            {{--'                                    </div>'--}}
+                                    {{--}--}}
+                                    {{--$('#row').html(html);--}}
+                                {{--}--}}
+                            {{--});--}}
+                            {{--number += 6;--}}
+                        {{--});--}}
+                    {{--})--}}
+                    {{--</script>--}}
             </div>
         </div>
     </section>
     <div class="container d-flex justify-content-center align-items-center align-content-center" style="height: 49px;margin-bottom: 22px;">
-        <a id="showMore" class="btn btn-primary border rounded border-dark" role="button" href="#" style="background-color: rgb(255,153,0);width: 390px;">Show more</a>
+        <a id="showMore" class="btn btn-primary border rounded border-dark" role="button" style="background-color: rgb(255,153,0);width: 390px;">Show more</a>
     </div>
   @endsection
 
