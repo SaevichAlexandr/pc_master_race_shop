@@ -11,8 +11,6 @@
 |
 */
 
-//Route::get('/add_game', 'MainPageController@addGame');
-
 Route::get('/', 'MainPageController@takeGames');
 
 Route::get('gameinfo/{id}', function ($id) {
@@ -58,11 +56,16 @@ Route::post('/registration-custom', 'AuthController@register');
 Route::get('/login-custom', 'AuthController@showLoginForm')->name('custom.login');
 Route::post('/login-custom', 'AuthController@login');
 
-Route::get('/user_orders', function() {
-    //TODO:Времнная заглушка для заказов пользователя
-    return view('user_orders');
-});
+Route::get('/user_orders', 'UserOrdersController@showUsersOrders');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/sendGameId', 'BuyingController@sendGameId')->name('send_game_id');
+
+Route::post('/buying', 'BuyingController@buying')->name('buying');
+
+Route::get('/buy_success', function () {
+    return view('buy_success');
+});
