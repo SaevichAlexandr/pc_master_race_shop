@@ -69,3 +69,13 @@ Route::post('/buying', 'BuyingController@buying')->name('buying');
 Route::get('/buy_success', function () {
     return view('buy_success');
 });
+
+
+Route::middleware(['is_admin'])->group(function () {
+
+    Route::get('/admin_page', function() {
+        return view('admin_page');
+    });
+
+
+});
