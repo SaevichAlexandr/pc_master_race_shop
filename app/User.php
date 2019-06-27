@@ -15,8 +15,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    //TODO: Если вдруг наебнётся регистрация то нужно is_admin поместить в $casts
     protected $fillable = [
-        'email', 'password',
+        'email', 'password', 'password', 'is_admin'
     ];
 
     /**
@@ -25,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token'
+         'remember_token'
     ];
 
     /**
@@ -34,6 +36,5 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'is_admin' => false
     ];
 }

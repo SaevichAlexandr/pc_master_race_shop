@@ -5,6 +5,8 @@
     <script src="../resources/assets/js/jquery.min.js"></script>
     <script src="../resources/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../resources/assets/js/bs-animation.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Kursach_design (first_ver)</title>
@@ -19,17 +21,22 @@
     <link rel="stylesheet" href="../resources/assets/css/Carousel-Hero.css">
     <link rel="stylesheet" href="../resources/assets/css/Dark-NavBar-1.css">
     <link rel="stylesheet" href="../resources/assets/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="../resources/assets/css/Data-Table-1.css">
+    <link rel="stylesheet" href="../resources/assets/css/Data-Table.css">
     <link rel="stylesheet" href="../resources/assets/css/dh-row-text-image-right.css">
     <link rel="stylesheet" href="../resources/assets/css/dh-row-titile-text-image-right-1.css">
     <link rel="stylesheet" href="../resources/assets/css/Footer-Clean.css">
     <link rel="stylesheet" href="../resources/assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="../resources/assets/css/Header---Apple.css">
     <link rel="stylesheet" href="../resources/assets/css/Pretty-Search-Form.css">
     <link rel="stylesheet" href="../resources/assets/css/Pretty-Footer.css">
-    <link rel="stylesheet" href="../resources/assets/css/Header---Apple.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="../resources/assets/css/Model-Cards-1.css">
     <link rel="stylesheet" href="../resources/assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="../resources/assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="../resources/assets/css/Pretty-Table-1.css">
+    <link rel="stylesheet" href="../resources/assets/css/Pretty-Table.css">
     <link rel="stylesheet" href="../resources/assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="../resources/assets/css/styles.css">
 </head>
@@ -73,12 +80,12 @@
             </div>
         </div>
     </nav>
-    <form class="search-form" style="margin-top: -4px;">
-        <div class="input-group">
-            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div><input class="form-control" type="text" placeholder="I am looking for..">
-            <div class="input-group-append"><button class="btn btn-light" type="submit">Search </button></div>
-        </div>
-    </form>
+    {{--<form class="search-form" style="margin-top: -4px;">--}}
+        {{--<div class="input-group">--}}
+            {{--<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div><input class="form-control" type="text" placeholder="I am looking for..">--}}
+            {{--<div class="input-group-append"><button class="btn btn-light" type="submit">Search </button></div>--}}
+        {{--</div>--}}
+    {{--</form>--}}
 </div>
 <ul class="nav nav-pills nav-fill text-primary border rounded-0 shadow-sm sticky-top" style="background-size: 0;">
     <li class="nav-item border rounded-0"><a class="nav-link text-primary text-secondary" href="/catalog">Games catalog</a></li>
