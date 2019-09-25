@@ -38,10 +38,14 @@ class AdminController extends Controller
 
     public function deleteRow()
     {
-        if($_POST['table_name'] == 'users') {
-            $deletedUser = User::where('id', '=', $_POST['id'])->delete();
-
+        $id = $_POST['id'];
+        $row = User::where('id', '=', $id)->first();
+        $isAdmin = $row->is_admin;
+        if($_POST['table_name'] == 'users' && $isAdmin != 1) {
+            $deletedUser = User::where('id', '=', $id)->delete();
             echo $deletedUser;
+        } else {
+            echo 0;
         }
     }
 }

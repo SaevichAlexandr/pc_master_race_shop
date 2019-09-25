@@ -20,8 +20,8 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Lupa</td>
-                    <td>Pupa</td>
+{{--                    <td>Lupa</td>--}}
+{{--                    <td>Pupa</td>--}}
                     <td>
                         <form>
                             {{--Добавить валуева с помощью блейдов--}}

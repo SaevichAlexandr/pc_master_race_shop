@@ -24,11 +24,7 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->password }}</td>
-                    @if($user->is_admin == 1)
-                        <td>true</td>
-                    @elseif($user->is_admin == 0)
-                        <td>false</td>
-                    @endif
+                    <td>${{ $user->is_admin }}</td>
                     <td>
                         <form>
                             <input class="token_delete" type="hidden" value="{{csrf_token()}}">
@@ -65,7 +61,7 @@
                 <div id="create_row" class="modal-body">
                     {{--Для примера тут будет форма для добавления пользователя--}}
                     {{--Для каждой таблицы нужно будет через JS добавлять свою форму--}}
-                    <form {{--action="/create_row" method="POST"--}}>
+                    <form action="/create_row" method="POST">
                         <input id="token_create" type="hidden" value="{{csrf_token()}}">
                         <div class="form-group">
                             <label for="email">Email:</label>

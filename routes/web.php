@@ -60,7 +60,7 @@ Route::get('/user_orders', 'UserOrdersController@showUsersOrders');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/sendGameId', 'BuyingController@sendGameId')->name('send_game_id');
 
@@ -70,6 +70,7 @@ Route::get('/buy_success', function () {
     return view('buy_success');
 });
 
+Route::get('/sukablyat', 'AdminController@deleteRow');
 
 Route::middleware(['is_admin'])->group(function () {
 
@@ -93,3 +94,5 @@ Route::middleware(['is_admin'])->group(function () {
 
     Route::post('/update_row', 'AdminController@updateRow');
 });
+
+
