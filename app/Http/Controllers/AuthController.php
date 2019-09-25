@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -17,6 +18,7 @@ class AuthController extends Controller
     {
         $this->validation($request);
         // вот тут в нижней строчке могут возникнуть проблемы как мне кажется
+        $request->merge(['password'=>Hash::make($request->input('password'))]);
         User::create($request->all());
         return redirect('/')->with('Status', 'You are registed');
     }
@@ -32,7 +34,7 @@ class AuthController extends Controller
             'email' => 'required|email|max:255',
             'password' => 'required|max:255'
         ]);
-        if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password ])) {
+        if(Auth::attempt(['email'=>$request->input('email'), 'password'=>$request->input('password')])) {
             return redirect('/');
         }
         return 'Ooops, something goes wrong';

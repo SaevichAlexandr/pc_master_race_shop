@@ -18,7 +18,7 @@ class User extends Authenticatable
 
     //TODO: Если вдруг наебнётся регистрация то нужно is_admin поместить в $casts
     protected $fillable = [
-        'email', 'password', 'password', 'is_admin'
+        'email', 'password', 'is_admin'
     ];
 
     /**
