@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -14,26 +15,43 @@ class AdminController extends Controller
 
     public function createRow()
     {
-        if ($_POST['table_name'] == 'users') {
+        if ($_POST['table_name'] == 'users' && !User::where('email', '=', $_POST['email'])->first()) {
             if($_POST['is_admin'] == 0) {
-                $newUserId = User::create(
+                $newUser = User::create(
                     [
                         'email' => $_POST['email'],
-                        'password' => bcrypt($_POST['password']),
+                        'password' => Hash::make($_POST['password']),
                         'is_admin' => false
                     ]
                 );
             } elseif($_POST['is_admin'] == 1) {
-                $newUserId = User::create(
+                $newUser = User::create(
                     [
                         'email' => $_POST['email'],
-                        'password' => bcrypt($_POST['password']),
+                        'password' => Hash::make($_POST['password']),
                         'is_admin' => true
                     ]
                 );
             }
-            echo json_encode($newUserId);
+            echo json_encode($newUser);
+        } else {
+            echo 0;
         }
+    }
+
+    public function updateRow()
+    {
+        $user =  User::where('id', '=', $_POST['id'])->first();
+        $user->email = $_POST['email'];
+        $user->password = Hash::make($_POST['password']);
+        $user->is_admin = $_POST['is_admin'];
+        $user->save();
+        echo 1;
+//        if() {
+//            echo 1;
+//        } else {
+//            echo 0;
+//        }
     }
 
     public function deleteRow()

@@ -29,6 +29,9 @@
                         <form>
                             <input class="token_delete" type="hidden" value="{{csrf_token()}}">
                             <input class="row_id" type="hidden" value="{{ $user->id }}">
+                            <input class="row_email" type="hidden" value="{{ $user->email }}">
+                            <input class="row_password" type="hidden" value="{{ $user->password }}">
+                            <input class="row_is_admin" type="hidden" value="{{ $user->is_admin }}">
                             <button class="update_row btn btn-primary" type="button" style="margin-left: -8px;" data-toggle="modal" data-target="#update">Update</button>
                             <button class="delete_row btn btn-primary" type="button" style="margin-left: 8px;" data-toggle="modal" data-target="#delete">Delete</button>
                         </form>
@@ -92,24 +95,24 @@
                 <div class="modal-body">
                     {{--Сюда будем бахать данные из бд в value--}}
                     <form action="/update_row" method="POST">
-                        {{csrf_field()}}
-                        {{--Добавить id ряда через блейд?--}}
+                        <input id="id_update" type="hidden" value="{{ $user->id}}">
+                        <input id="token_update" type="hidden" value="{{csrf_token()}}">
                         <input class="row_id" type="hidden" value="row_id">
                         <input class="table_name" type="hidden" value="users">
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input id="email" class="form-control" type="text" value="email">
+                            <input id="email_update" class="form-control" type="text" value="">
                         </div>
                         <div class="form-group">
                             <label for="password">Password:</label>
-                            <input id="password" class="form-control" type="text" value="password">
+                            <input id="password_update" class="form-control" type="text" value="">
                         </div>
                         <div class="form-group">
                             <label for="is_admin">Is_admin:</label>
-                            <input id="is_admin" class="form-control" type="number" value="1">
+                            <input id="is_admin_update" class="form-control" type="number" value="">
                         </div>
                         <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
-                        <button class="btn btn-primary" type="button">Save</button>
+                        <button id="update_row_button" class="btn btn-primary" type="button">Save</button>
                     </form>
                 </div>
             </div>
