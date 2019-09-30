@@ -26,7 +26,7 @@
                     <td>{{ $user->password }}</td>
                     <td>${{ $user->is_admin }}</td>
                     <td>
-                        <form>
+                        <form class="form_class">
                             <input class="token_delete" type="hidden" value="{{csrf_token()}}">
                             <input class="row_id" type="hidden" value="{{ $user->id }}">
                             <input class="row_email" type="hidden" value="{{ $user->email }}">
@@ -43,13 +43,6 @@
             <tr></tr>
             </tfoot>
         </table>
-        {{--@foreach($bestsellers as $game)
-                        <div class="col-auto col-sm-6 col-md-auto col-lg-auto col-xs-5" style="background-size: cover;background-position: top;height: 362px;">
-                            <div class="card d-inline-block mb-4 box-shadow rounded-0" style="height: 350px;width: 264px;">
-                                <div class="card-body" data-bs-hover-animate="pulse" style="background-size: cover;background-position: top;height: 350px;background-image: url(&quot;../resources/assets/img/{{$game->image_name}}&quot;);"><a class="btn btn-primary border rounded border-dark" role="button" href="{{ 'http://pc.master.race.shop/gameinfo/'.$game->id }}" data-bs-hover-animate="pulse" style="width: 224px;margin-top: 273px;background-color: rgb(255,153,0);">{{ $game->price }}</a></div>
-                            </div>
-                        </div>
-                    @endforeach--}}
     </div>
     {{--Тут идут модальные окна--}}
 

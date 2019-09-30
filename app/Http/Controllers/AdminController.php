@@ -46,12 +46,7 @@ class AdminController extends Controller
         $user->password = Hash::make($_POST['password']);
         $user->is_admin = $_POST['is_admin'];
         $user->save();
-        echo 1;
-//        if() {
-//            echo 1;
-//        } else {
-//            echo 0;
-//        }
+        echo json_encode($user);
     }
 
     public function deleteRow()

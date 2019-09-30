@@ -4,6 +4,7 @@
     <list default="true" id="7fcb9543-b82a-4201-bd1a-d6e42c0cc13d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CatalogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CatalogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/js/user_table_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/user_table_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users_table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users_table.blade.php" afterDir="false" />
     </list>
@@ -236,6 +237,9 @@
       <workItem from="1569353212822" duration="45000" />
       <workItem from="1569353449497" duration="8644000" />
       <workItem from="1569569283592" duration="11107000" />
+      <workItem from="1569608857455" duration="64000" />
+      <workItem from="1569661229468" duration="4771000" />
+      <workItem from="1569841898885" duration="5927000" />
     </task>
     <servers />
   </component>
