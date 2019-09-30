@@ -14,23 +14,23 @@
             <tr>
                 <th>id</th>
                 <th>name</th>
-                <th>password</th>
+{{--                <th>password</th>--}}
                 <th>is_admin</th>
             </tr>
             </thead>
             <tbody id="tbody">
             @foreach($users as $user)
                 <tr class="table_row">
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->password }}</td>
-                    <td>${{ $user->is_admin }}</td>
-                    <td>
+                    <td class="table_id">{{ $user->id }}</td>
+                    <td class="table_email">{{ $user->email }}</td>
+{{--                    <td>{{ $user->password }}</td>--}}
+                    <td class="table_is_admin">${{ $user->is_admin }}</td>
+                    <td class="form_parent">
                         <form class="form_class">
                             <input class="token_delete" type="hidden" value="{{csrf_token()}}">
                             <input class="row_id" type="hidden" value="{{ $user->id }}">
                             <input class="row_email" type="hidden" value="{{ $user->email }}">
-                            <input class="row_password" type="hidden" value="{{ $user->password }}">
+{{--                            <input class="row_password" type="hidden" value="{{ $user->password }}">--}}
                             <input class="row_is_admin" type="hidden" value="{{ $user->is_admin }}">
                             <button class="update_row btn btn-primary" type="button" style="margin-left: -8px;" data-toggle="modal" data-target="#update">Update</button>
                             <button class="delete_row btn btn-primary" type="button" style="margin-left: 8px;" data-toggle="modal" data-target="#delete">Delete</button>
@@ -96,10 +96,10 @@
                             <label for="email">Email:</label>
                             <input id="email_update" class="form-control" type="text" value="">
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input id="password_update" class="form-control" type="text" value="">
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="password">Password:</label>--}}
+{{--                            <input id="password_update" class="form-control" type="text" value="">--}}
+{{--                        </div>--}}
                         <div class="form-group">
                             <label for="is_admin">Is_admin:</label>
                             <input id="is_admin_update" class="form-control" type="number" value="">

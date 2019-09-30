@@ -13,6 +13,7 @@ class AdminController extends Controller
         return view('users_table')->with('users', $users = User::all());
     }
 
+    // сделать валидацию вводимых данных
     public function createRow()
     {
         if ($_POST['table_name'] == 'users' && !User::where('email', '=', $_POST['email'])->first()) {
@@ -24,6 +25,7 @@ class AdminController extends Controller
                         'is_admin' => false
                     ]
                 );
+                $newUser->password = encrypt($newUser->password);
             } elseif($_POST['is_admin'] == 1) {
                 $newUser = User::create(
                     [
@@ -32,6 +34,7 @@ class AdminController extends Controller
                         'is_admin' => true
                     ]
                 );
+                $newUser->password = encrypt($newUser->password);
             }
             echo json_encode($newUser);
         } else {
@@ -39,11 +42,12 @@ class AdminController extends Controller
         }
     }
 
+    // сделать валидацию вводимых данных
     public function updateRow()
     {
         $user =  User::where('id', '=', $_POST['id'])->first();
         $user->email = $_POST['email'];
-        $user->password = Hash::make($_POST['password']);
+//        $user->password = Hash::make($_POST['password']);
         $user->is_admin = $_POST['is_admin'];
         $user->save();
         echo json_encode($user);

@@ -18,6 +18,7 @@ class AuthController extends Controller
     {
         $this->validation($request);
         // вот тут в нижней строчке могут возникнуть проблемы как мне кажется
+//        $request->merge(['password'=>Hash::make($request->input('password'))]);
         $request->merge(['password'=>Hash::make($request->input('password'))]);
         User::create($request->all());
         return redirect('/')->with('Status', 'You are registed');
