@@ -13,7 +13,7 @@
             <thead>
             <tr>
                 <th>id</th>
-                <th>name</th>
+                <th>email</th>
 {{--                <th>password</th>--}}
                 <th>is_admin</th>
             </tr>
@@ -21,10 +21,10 @@
             <tbody id="tbody">
             @foreach($users as $user)
                 <tr class="table_row">
-                    <td class="table_id">{{ $user->id }}</td>
-                    <td class="table_email">{{ $user->email }}</td>
+                    <td class="table_id custom-size">{{ $user->id }}</td>
+                    <td class="table_email custom-size">{{ $user->email }}</td>
 {{--                    <td>{{ $user->password }}</td>--}}
-                    <td class="table_is_admin">${{ $user->is_admin }}</td>
+                    <td class="table_is_admin custom-size">${{ $user->is_admin }}</td>
                     <td class="form_parent">
                         <form class="form_class">
                             <input class="token_delete" type="hidden" value="{{csrf_token()}}">

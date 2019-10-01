@@ -13,7 +13,7 @@ class AdminController extends Controller
         return view('users_table')->with('users', $users = User::all());
     }
 
-    // сделать валидацию вводимых данных
+    //TODO: сделать валидацию вводимых данных для всех методов
     public function createRow()
     {
         if ($_POST['table_name'] == 'users' && !User::where('email', '=', $_POST['email'])->first()) {

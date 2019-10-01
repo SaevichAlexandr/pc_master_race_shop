@@ -12,3 +12,21 @@
 .col-xl-9.offset-xl-0 {
 }
 
+
+/* Снизу охерительный способ ограничения кол-ва символов в столбце таблицы */
+.custom-size {
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    padding: 5px; /* Поля */
+    text-overflow: ellipsis; /* Многоточие */
+}
+
+.custom-size:hover {
+    background: #f0f0f0; /* Цвет фона */
+    white-space: normal; /* Обычный перенос текста */
+}
+
+table {
+    table-layout:fixed;
+    width:100%;
+}
