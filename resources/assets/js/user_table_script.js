@@ -47,64 +47,57 @@ $(document).ready(function() {
         }
     });
 
-    // слушаем кнопки update
+    // Добавление данных в форму модального окна для изменения записи в таблице
     $(document).on('click', '.update_row', function () {
-        // данные из строки таблицы подставляемые в модальное окно
-        // let id_value = $(this).siblings('.row_id').prop('value');
-        // let email_value = $(this).siblings('.row_email').prop('value');
-        // let password_value = $(this).siblings('.row_password').prop('value');
-        // let is_admin_value = $(this).siblings('.row_is_admin').prop('value');
-
-        // объекты инпутов в которых лежат данные для модального окна
-        let id_obj = $(this).siblings('.row_id');
-        let email_obj = $(this).siblings('.row_email');
-        // let password_obj = $(this).siblings('.row_password');
-        let is_admin_obj = $(this).siblings('.row_is_admin');
-
-        //TODO: нужно из переменных выше сделать объекты и запихивать в них после выполнения изменений новые данные
-
-        // объекты для вставки в таблицу изменённых значений
-        let table_id = $(this).parents('.form_parent').siblings('.table_id');
-        let table_email = $(this).parents('.form_parent').siblings('.table_email');
-        let table_is_admin = $(this).parents('.form_parent').siblings('.table_is_admin');
+        // let table_id = $(this).parent().parent().siblings('.table_id');
+        // let table_email = $(this).parent().parent().siblings('.table_email');
+        // let table_is_admin = $(this).parent().parent().siblings('.table_is_admin');
+        //TODO: как вариант, искать все элементы по селектору который есть у ячейки таблицы
+        // отображающей id строки и оттуда уже плясать
 
         // подстановка данных из строки в модальное окно
-        $('#id_update').val(id_obj.val());
-        $('#email_update').val(email_obj.val());
-        // $('#password_update').val(password_obj.val());
-        $('#is_admin_update').val(is_admin_obj.val());
+        $('#id_update').val($(this).siblings('.row_id').val());
+        $('#email_update').val($(this).siblings('.row_email').val());
+        $('#is_admin_update').val($(this).siblings('.row_is_admin').val());
+    });
 
-        // console.log($(this).parents('.form_parent').siblings('.table_id').html());
-        console.log(table_id.html());
-        console.log(table_email.html());
-        // активируем отправку по нажатию на кнопку save
-        $('#update_row_button').on('click', function () {
-            let id = $('#id_update').prop('value');
-            let email = $('#email_update').prop('value');
-            // let password = $('#password_update').prop('value');
-            let is_admin = $('#is_admin_update').prop('value');
-            let _token = $('#token_update').val();
+    // Отправка изменённых данных на сервер для записи в БД и изменение значений в таблице
+    $(document).on('click', '#update_row_button', function () {
+        let id = $('#id_update').prop('value');
+        let email = $('#email_update').prop('value');
+        let is_admin = $('#is_admin_update').prop('value');
+        let _token = $('#token_update').prop('value');
 
-            // ajax метод для вставки данных в БД
-            $.ajax({
-                type: 'POST',
-                url:'/update_row',
-                dataType: 'json',
-                data: `id=${id}&email=${email}&is_admin=${is_admin}&table_name=users&_token=${_token}`,
-                success: function (response) {
-                    if (response) {
-                        // подстановка новых значений в таблицу админки
-                        table_email.html(response['email']);
-                        table_is_admin.html(response['is_admin']);
+        // находим объект html где хранится id равный id в форме модального окна
+        let row_id_obj = $('.row_id[value='+ id +']');
+        // теперь можно найти объекты, в которые нужно занести уже изменённые данные
+        // для корректного их отображения в будущем
+        let row_email_obj = row_id_obj.siblings('.row_email');
+        let row_is_admin_obj = row_id_obj.siblings('.row_is_admin');
 
-                        // подставляем данные в форму, пивязанную к строке таблицы
-                        email_obj.val(response['email']);
-                        is_admin_obj.val(response['is_admin']);
-                    } else {
-                        alert("При изменении данных произошла ошибка!");
-                    }
+        let table_email_obj = row_id_obj.parents('.form_parent').siblings('.table_email');
+        let table_is_admin_obj = row_id_obj.parents('.form_parent').siblings('.table_is_admin');
+
+
+        // console.log(table_email_obj.html());
+
+        // ajax метод для вставки данных в БД
+        $.ajax({
+            type: 'POST',
+            url:'/update_row',
+            dataType: 'json',
+            data: `id=${id}&email=${email}&is_admin=${is_admin}&table_name=users&_token=${_token}`,
+            success: function (response) {
+                if (response) {
+                    // подстановка новых значений в таблицу админки
+                    table_email_obj.html(response['email']);
+                    table_is_admin_obj.html(response['is_admin']);
+                    row_email_obj.val(response['email']);
+                    row_is_admin_obj.val(response['is_admin']);
+                } else {
+                    alert("При изменении данных произошла ошибка!");
                 }
-            });
+            }
         });
     });
 
