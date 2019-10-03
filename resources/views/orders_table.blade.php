@@ -12,27 +12,38 @@
         <table class="table">
             <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>password</th>
-                <th>is_admin</th>
+                <th class="custom-size">id</th>
+                <th class="custom-size">user_id</th>
+                <th class="custom-size">game_id</th>
+                <th class="custom-size">email_to_send</th>
+                <th class="custom-size">created_at</th>
+                <th class="custom-size">updated_at</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td>Lupa</td>
-                <td>Pupa</td>
-                <td>passwordpassword</td>
-                <td>0</td>
-                <td>
-                    <form>
-                        {{--Добавить валуева с помощью блейдов--}}
-                        <input class="row_id" type="hidden" value="">
-                        <button class="btn btn-primary" type="button" style="margin-left: -8px;" data-toggle="modal" data-target="#update">Update</button>
-                        <button class="btn btn-primary" type="button" style="margin-left: 8px;" data-toggle="modal" data-target="#delete">Delete</button>
-                    </form>
-                </td>
-            </tr>
+            <tbody id="tbody">
+            @foreach($orders as $order)
+                <tr class="table_row">
+                    <td class="table_id custom-size">{{ $order->id }}</td>
+                    <td class="table_user_id custom-size">{{ $order->user_id }}</td>
+                    <td class="table_game_id custom-size">${{ $order->game_id }}</td>
+                    <td class="table_email_to_send custom-size">{{ $order->email_to_send }}</td>
+                    <td class="table_created_at custom-size">{{ $order->created_at }}</td>
+                    <td class="table_updated_at custom-size">${{ $order->updated_at }}</td>
+                    <td class="form_parent">
+                        <form class="form_class">
+                            <input class="token_delete" type="hidden" value="{{csrf_token()}}">
+                            <input class="row_id" type="hidden" value="{{ $order->id }}">
+                            <input class="row_user_id" type="hidden" value="{{ $order->user_id }}">
+                            <input class="row_game_id" type="hidden" value="{{ $order->game_id }}">
+                            <input class="row_email_to_send" type="hidden" value="{{ $order->email_to_send }}">
+                            <input class="row_created_at" type="hidden" value="{{ $order->created_at }}">
+                            <input class="row_updated_at" type="hidden" value="{{ $order->updated_at }}">
+                            <button class="update_row btn btn-primary" type="button" style="margin-left: -8px;" data-toggle="modal" data-target="#update">Update</button>
+                            <button class="delete_row btn btn-primary" type="button" style="margin-left: 8px;" data-toggle="modal" data-target="#delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
             <tfoot>
             <tr></tr>
@@ -50,24 +61,22 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div id="create_row" class="modal-body">
-                    {{--Для примера тут будет форма для добавления пользователя--}}
-                    {{--Для каждой таблицы нужно будет через JS добавлять свою форму--}}
-                    <form action="/create_row" method="POST">
-                        <input class="table_name" type="hidden" value="users">
+                    <form>
+                        <input id="token_create" type="hidden" value="{{csrf_token()}}">
                         <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input id="email" class="form-control" type="text" placeholder="example@mail.com">
+                            <label for="user_id_create">User_id:</label>
+                            <input id="user_id_create" class="form-control" type="text" placeholder="123">
                         </div>
                         <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input id="password" class="form-control" type="text" placeholder="12344321">
+                            <label for="game_id_create">Game_id:</label>
+                            <input id="game_id_create" class="form-control" type="text" placeholder="123">
                         </div>
                         <div class="form-group">
-                            <label for="is_admin">Is_admin:</label>
-                            <input id="is_admin" class="form-control" type="number" placeholder="0 or 1">
+                            <label for="email_to_send_create">Email_to_send:</label>
+                            <input id="email_to_send_create" class="form-control" type="email" placeholder="example@mail.com">
                         </div>
                         <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
-                        <button class="btn btn-primary" type="button">Save</button>
+                        <button id="create_row_button" class="btn btn-primary" type="button">Save</button>
                     </form>
                 </div>
             </div>
@@ -81,50 +90,48 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Update row</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
                 <div class="modal-body">
-                    {{--Сюда будем бахать данные из бд в value--}}
-                    <form action="/update_row" method="POST">
-                        {{--Добавить id ряда через блейд?--}}
-                        <input class="row_id" type="hidden" value="row_id">
-                        <input class="table_name" type="hidden" value="users">
+                    <form>
+                        <input id="id_update" type="hidden" value="">
+                        <input id="token_update" type="hidden" value="{{csrf_token()}}">
                         <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input id="email" class="form-control" type="text" value="email">
+                            <label for="user_id_update">User_id:</label>
+                            <input id="user_id_update" class="form-control" type="text" value="">
                         </div>
                         <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input id="password" class="form-control" type="text" value="password">
+                            <label for="game_id_update">Game_id:</label>
+                            <input id="game_id_update" class="form-control" type="text" value="">
                         </div>
                         <div class="form-group">
-                            <label for="is_admin">Is_admin:</label>
-                            <input id="is_admin" class="form-control" type="number" value="1">
+                            <label for="email_to_send_update">Email_to_send:</label>
+                            <input id="email_to_send_update" class="form-control" type="email" value="">
                         </div>
                         <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
-                        <button class="btn btn-primary" type="button">Save</button>
+                        <button id="update_row_button" class="btn btn-primary" type="button">Save</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="../resources/assets/js/order_table_script.js"></script>
     {{--Удаление записи--}}
-    <div id="delete" class="modal fade" role="dialog" tabindex="-1">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Deleting</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body">
-                    <p>Do you really want to delete this row?</p>
-                    <form method="POST" action="/delete_row">
-                        {{--Добавить значения каки-то образом--}}
-                        <input class="row_id" type="hidden" value="row_id">
-                        <input class="table_name" type="hidden" value="users">
-                        <button class="btn btn-light" type="button" data-dismiss="modal">No</button>
-                        <button class="btn btn-primary" type="button">Yes</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div id="delete" class="modal fade" role="dialog" tabindex="-1">--}}
+{{--        <div class="modal-dialog" role="document">--}}
+{{--            <div class="modal-content">--}}
+{{--                <div class="modal-header">--}}
+{{--                    <h4 class="modal-title">Deleting</h4>--}}
+{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>--}}
+{{--                </div>--}}
+{{--                <div class="modal-body">--}}
+{{--                    <p>Do you really want to delete this row?</p>--}}
+{{--                    <form method="POST" action="/delete_row">--}}
+{{--                        --}}{{--Добавить значения каки-то образом--}}
+{{--                        <input class="row_id" type="hidden" value="row_id">--}}
+{{--                        <input class="table_name" type="hidden" value="users">--}}
+{{--                        <button class="btn btn-light" type="button" data-dismiss="modal">No</button>--}}
+{{--                        <button class="btn btn-primary" type="button">Yes</button>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 @endsection

@@ -80,12 +80,10 @@ Route::middleware(['is_admin'])->group(function () {
 
     Route::get('/users_table', 'AdminController@showUsersTable');
 
+    Route::get('/orders_table', 'AdminController@showOrdersTable');
+
     Route::get('/games_table', function () {
         return view('games_table');
-    });
-
-    Route::get('/orders_table', function () {
-        return view('orders_table');
     });
 
     Route::post('/delete_row', 'AdminController@deleteRow');

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class UserOrdersController extends Controller
 {
+    //TODO: было бы неплохо не дублировать карточки игр, а показывать отдельным пунктом, сколько ключей конкретной игры
+    // было приобретено пользователем
     public function showUsersOrders()
     {
         $userId = Auth::user()->id;

@@ -12,10 +12,9 @@
         <table class="table">
             <thead>
             <tr>
-                <th>id</th>
-                <th>email</th>
-{{--                <th>password</th>--}}
-                <th>is_admin</th>
+                <th class="custom-size">id</th>
+                <th class="custom-size">email</th>
+                <th class="custom-size">is_admin</th>
             </tr>
             </thead>
             <tbody id="tbody">
@@ -23,14 +22,12 @@
                 <tr class="table_row">
                     <td class="table_id custom-size">{{ $user->id }}</td>
                     <td class="table_email custom-size">{{ $user->email }}</td>
-{{--                    <td>{{ $user->password }}</td>--}}
                     <td class="table_is_admin custom-size">${{ $user->is_admin }}</td>
                     <td class="form_parent">
                         <form class="form_class">
                             <input class="token_delete" type="hidden" value="{{csrf_token()}}">
                             <input class="row_id" type="hidden" value="{{ $user->id }}">
                             <input class="row_email" type="hidden" value="{{ $user->email }}">
-{{--                            <input class="row_password" type="hidden" value="{{ $user->password }}">--}}
                             <input class="row_is_admin" type="hidden" value="{{ $user->is_admin }}">
                             <button class="update_row btn btn-primary" type="button" style="margin-left: -8px;" data-toggle="modal" data-target="#update">Update</button>
                             <button class="delete_row btn btn-primary" type="button" style="margin-left: 8px;" data-toggle="modal" data-target="#delete">Delete</button>
@@ -55,13 +52,11 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div id="create_row" class="modal-body">
-                    {{--Для примера тут будет форма для добавления пользователя--}}
-                    {{--Для каждой таблицы нужно будет через JS добавлять свою форму--}}
-                    <form action="/create_row" method="POST">
+                    <form>
                         <input id="token_create" type="hidden" value="{{csrf_token()}}">
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input id="email_create" class="form-control" type="text" placeholder="example@mail.com">
+                            <input id="email_create" class="form-control" type="email" placeholder="example@mail.com">
                         </div>
                         <div class="form-group">
                             <label for="password">Password:</label>
@@ -70,6 +65,8 @@
                         <div class="form-group">
                             <label for="is_admin">Is_admin:</label>
                             <input id="is_admin_create" class="form-control" type="text" placeholder="0 or 1">
+{{--                            <input id="is_admin_create_true" name="create_is_admin" class="form-control" type="radio" value="1">True--}}
+{{--                            <input id="is_admin_create_false" name="create_is_admin" class="form-control" type="radio" value="0">False--}}
                         </div>
                         <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
                         <button id="create_row_button" class="btn btn-primary" type="button">Save</button>
@@ -86,20 +83,13 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Update row</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
                 <div class="modal-body">
-                    {{--Сюда будем бахать данные из бд в value--}}
-                    <form action="/update_row" method="POST">
-                        <input id="id_update" type="hidden" value="{{ $user->id}}">
+                    <form>
+                        <input id="id_update" type="hidden" value="">
                         <input id="token_update" type="hidden" value="{{csrf_token()}}">
-                        <input class="row_id" type="hidden" value="row_id">
-                        <input class="table_name" type="hidden" value="users">
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input id="email_update" class="form-control" type="text" value="">
+                            <input id="email_update" class="form-control" type="email" value="">
                         </div>
-{{--                        <div class="form-group">--}}
-{{--                            <label for="password">Password:</label>--}}
-{{--                            <input id="password_update" class="form-control" type="text" value="">--}}
-{{--                        </div>--}}
                         <div class="form-group">
                             <label for="is_admin">Is_admin:</label>
                             <input id="is_admin_update" class="form-control" type="number" value="">

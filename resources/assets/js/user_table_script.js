@@ -43,18 +43,12 @@ $(document).ready(function() {
                 }
             });
         } else {
-            alert('Одно из полей не заполнено!');
+            alert('Одно из полей не заполнено либо заполнено неверно!');
         }
     });
 
     // Добавление данных в форму модального окна для изменения записи в таблице
     $(document).on('click', '.update_row', function () {
-        // let table_id = $(this).parent().parent().siblings('.table_id');
-        // let table_email = $(this).parent().parent().siblings('.table_email');
-        // let table_is_admin = $(this).parent().parent().siblings('.table_is_admin');
-        //TODO: как вариант, искать все элементы по селектору который есть у ячейки таблицы
-        // отображающей id строки и оттуда уже плясать
-
         // подстановка данных из строки в модальное окно
         $('#id_update').val($(this).siblings('.row_id').val());
         $('#email_update').val($(this).siblings('.row_email').val());
@@ -78,27 +72,31 @@ $(document).ready(function() {
         let table_email_obj = row_id_obj.parents('.form_parent').siblings('.table_email');
         let table_is_admin_obj = row_id_obj.parents('.form_parent').siblings('.table_is_admin');
 
-
-        // console.log(table_email_obj.html());
-
         // ajax метод для вставки данных в БД
-        $.ajax({
-            type: 'POST',
-            url:'/update_row',
-            dataType: 'json',
-            data: `id=${id}&email=${email}&is_admin=${is_admin}&table_name=users&_token=${_token}`,
-            success: function (response) {
-                if (response) {
-                    // подстановка новых значений в таблицу админки
-                    table_email_obj.html(response['email']);
-                    table_is_admin_obj.html(response['is_admin']);
-                    row_email_obj.val(response['email']);
-                    row_is_admin_obj.val(response['is_admin']);
-                } else {
-                    alert("При изменении данных произошла ошибка!");
+        if (email && is_admin && (is_admin == 0 || is_admin == 1) && _token) {
+            $.ajax({
+                type: 'POST',
+                url: '/update_row',
+                dataType: 'json',
+                data: `id=${id}&email=${email}&is_admin=${is_admin}&table_name=users&_token=${_token}`,
+                success: function (response) {
+                    if (response) {
+                        // подстановка новых значений в таблицу админки
+                        table_email_obj.html(response['email']);
+                        table_is_admin_obj.html(response['is_admin']);
+                        row_email_obj.val(response['email']);
+                        row_is_admin_obj.val(response['is_admin']);
+                    } else {
+                        alert("При изменении данных произошла ошибка!");
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Ошибка: ' + textStatus + ' | ' + errorThrown);
                 }
-            }
-        });
+            });
+        } else {
+            alert('Одно из полей не заполнено либо заполнено неверно!');
+        }
     });
 
     $(document).on('click', '.delete_row', function () {
