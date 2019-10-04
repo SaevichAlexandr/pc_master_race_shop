@@ -16,7 +16,7 @@ $(document).ready(function() {
                     //php метод вернёт 0 если мыло повторяется, потому обрабатываем этот случай
                     if (response) {
                         let html =
-                            ` <tr>
+                            ` <tr class="table_row">
                             <td class="table_id custom-size">${response['id']}</td>
                             <td class="table_user_id custom-size">${response['user_id']}</td>
                             <td class="table_game_id custom-size">${response['game_id']}</td>

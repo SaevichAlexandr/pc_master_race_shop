@@ -61,6 +61,23 @@ class AdminController extends Controller
                 ]
             );
             echo json_encode($newOrder);
+        } elseif ($_POST['table_name'] == 'games') {
+            $newGame = Game::create(
+                [
+                    'platform' => $_POST['platform'],
+                    'price' => $_POST['price'],
+                    'release_date' => $_POST['release_date'],
+                    'developer' => $_POST['developer'],
+                    'publisher' => $_POST['publisher'],
+                    'name' => $_POST['name'],
+                    'system_requirements' => $_POST['system_requirements'],
+                    'description_ru' => $_POST['description_ru'],
+                    'sold_keys' => $_POST['sold_keys'],
+                    'is_preorder' => $_POST['is_preorder'],
+                    'image_name' => $_POST['image_name']
+                ]
+            );
+            echo json_encode($newGame);
         }
     }
 
