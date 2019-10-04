@@ -20,6 +20,11 @@ class AdminController extends Controller
         return view('orders_table')->with('orders', $orders = Order::all());
     }
 
+    public function showGamesTable()
+    {
+        return view('games_table')->with('games', $games = Game::all());
+    }
+
     //TODO: сделать валидацию вводимых данных для всех методов
     public function createRow()
     {
@@ -93,10 +98,12 @@ class AdminController extends Controller
             }
         } elseif ($_POST['table_name'] == 'orders') {
             $id = $_POST['id'];
-            $deletedUser = Order::where('id', '=', $id)->delete();
-            echo $deletedUser;
+            $deletedOrder = Order::where('id', '=', $id)->delete();
+            echo $deletedOrder;
         } elseif ($_POST['table_name'] == 'games') {
-            echo "Tuta pusto poka";
+            $id = $_POST['id'];
+            $deletedGame = Game::where('id', '=', $id)->delete();
+            echo $deletedGame;
         }
 
     }

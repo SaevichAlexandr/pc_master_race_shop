@@ -82,9 +82,9 @@ Route::middleware(['is_admin'])->group(function () {
 
     Route::get('/orders_table', 'AdminController@showOrdersTable');
 
-    Route::get('/games_table', function () {
-        return view('games_table');
-    });
+    // возможно потом нужно будет заменить на post
+    Route::get('/games_table', 'AdminController@showGamesTable');
+
 
     Route::post('/delete_row', 'AdminController@deleteRow');
 

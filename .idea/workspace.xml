@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fcb9543-b82a-4201-bd1a-d6e42c0cc13d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/assets/js/order_table_script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/game_table_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Game.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserOrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserOrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BuyingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BuyingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CatalogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CatalogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/order_table_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/order_table_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/js/user_table_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/user_table_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin_page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin_page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/games_table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/games_table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/orders_table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders_table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users_table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users_table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -245,7 +247,8 @@
       <workItem from="1569608857455" duration="64000" />
       <workItem from="1569661229468" duration="4771000" />
       <workItem from="1569841898885" duration="17398000" />
-      <workItem from="1569942274142" duration="37583000" />
+      <workItem from="1569942274142" duration="46150000" />
+      <workItem from="1570187275964" duration="1866000" />
     </task>
     <servers />
   </component>

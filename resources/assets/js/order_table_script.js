@@ -123,6 +123,9 @@ $(document).ready(function() {
             data: "id=" + id_value + "&table_name=orders&_token=" + _token,
             success: function () {
                 table_row.remove();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('Ошибка: ' + textStatus + ' | ' + errorThrown);
             }
         });
     });

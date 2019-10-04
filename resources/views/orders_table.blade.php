@@ -73,7 +73,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email_to_send_create">Email_to_send:</label>
-                            <input id="email_to_send_create" class="form-control" type="email" placeholder="example@mail.com">
+                            <input id="email_to_send_create" class="form-control" type="text" placeholder="example@mail.com">
                         </div>
                         <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
                         <button id="create_row_button" class="btn btn-primary" type="button">Save</button>
@@ -113,25 +113,4 @@
         </div>
     </div>
     <script type="text/javascript" src="../resources/assets/js/order_table_script.js"></script>
-    {{--Удаление записи--}}
-{{--    <div id="delete" class="modal fade" role="dialog" tabindex="-1">--}}
-{{--        <div class="modal-dialog" role="document">--}}
-{{--            <div class="modal-content">--}}
-{{--                <div class="modal-header">--}}
-{{--                    <h4 class="modal-title">Deleting</h4>--}}
-{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>--}}
-{{--                </div>--}}
-{{--                <div class="modal-body">--}}
-{{--                    <p>Do you really want to delete this row?</p>--}}
-{{--                    <form method="POST" action="/delete_row">--}}
-{{--                        --}}{{--Добавить значения каки-то образом--}}
-{{--                        <input class="row_id" type="hidden" value="row_id">--}}
-{{--                        <input class="table_name" type="hidden" value="users">--}}
-{{--                        <button class="btn btn-light" type="button" data-dismiss="modal">No</button>--}}
-{{--                        <button class="btn btn-primary" type="button">Yes</button>--}}
-{{--                    </form>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 @endsection

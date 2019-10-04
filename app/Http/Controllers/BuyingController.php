@@ -42,8 +42,6 @@ class BuyingController extends Controller
             $sold_games = ++$game->sold_keys;
             $updateGame->where('id', '=', $_POST['game_id'])->update(['sold_keys' => $sold_games]);
         }
-
-
         return redirect('/buy_success');
     }
 }

@@ -116,6 +116,9 @@ $(document).ready(function() {
                 } else {
                     alert("Нельзя удалять пользователей, являющихся администраторами!");
                 }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('Ошибка: ' + textStatus + ' | ' + errorThrown);
             }
         });
     });
